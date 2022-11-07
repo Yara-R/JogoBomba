@@ -28,7 +28,7 @@ print("Você conseguiu acessar o controle da bomba!\nPara desarma-la, digite a s
 print(f"Dica: A senha possui {par} numero(s) par(es)\n")
 
 while True:
-	guess = input("Digite uma senha de 4 digitos:")
+	guess = input("Digite uma senha de 4 digitos: ")
 	presente = 0
 	certo = 0
 
@@ -52,10 +52,11 @@ while True:
 		certo +=1
 
 	if presente == 4 and certo == 4:
-		print("Parabéns! Você conseguiu desmontar a bomba")
+		print("\nParabéns! Você conseguiu desmontar a bomba\n")
+		break
 
 	elif presente == 4 and certo != 4:
-		print(f"Todos os numeros estão certos e {certo} estão na posição certa!")
+		print(f"\nTodos os numeros estão certos e {certo} estão na posição certa!\n")
 
 	else:
-		print(f"{presente} números fazem parte da senha.\n{certo} números estão na posição certa")
+		print(f"\n{presente} números fazem parte da senha.\n{certo} números estão na posição certa\n")
