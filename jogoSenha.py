@@ -24,7 +24,7 @@ if n3 % 2 == 0:
 if n4 % 2 == 0:
     par += 1
 
-print("Você conseguiu acessar o controle da bomba!\nPara desarma-la, digite a senha de 4 dígitos corretamente.\nVocê tem 60 segundos!")
+print("\nVocê conseguiu acessar o controle da bomba!\nPara desarma-la, digite a senha de 4 dígitos corretamente.\nVocê tem 60 segundos!")
 print(f"Dica: A senha possui {par} numero(s) par(es)\n")
 
 while True:
