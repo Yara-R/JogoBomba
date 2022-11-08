@@ -1,5 +1,5 @@
 import serial
-import jogoSenha
+from jogoSenha import jogo
 
 while True:
     try:
@@ -13,13 +13,10 @@ while True:
     cmd = input("começar o jogo")
     if cmd == 's':
         arduino.write('s'.encode())
-        cmd = input("Andre começa com que letra?")
+        cmd = jogo()
         arduino.flush()
         if cmd == 'a':
             arduino.write('a'.encode())
-        else:
-            arduino.write('b'.encode())
-            print('Morreu!')
     else:
         print("Xau! Nunca quis brincar mesmo...")
     
