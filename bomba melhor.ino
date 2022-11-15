@@ -1,10 +1,6 @@
-//Programa: Display LCD 16x2 e modulo I2C
-//Autor: Arduino e Cia
-
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
-//Inicializa o display no endereco 0x27
 LiquidCrystal_I2C lcd(0x3F, 16, 2);
 char cmd;
 char resposta;
@@ -12,6 +8,9 @@ void setup() {
   Serial.begin(9600);
   lcd.init();
   pinMode(13, OUTPUT);
+  pinMode(7,INPUT);
+  pinMode(6,INPUT);
+  pinMode(5,INPUT);
 }
 
 void loop() {
@@ -28,7 +27,7 @@ void loop() {
       //lcd.scrollDisplayLeft();
       delay(1000);
       lcd.clear();
-      if (i==0){
+      if (i==0 || digitalRead(6)==HIGH || digitalRead(5)==HIGH ){
         lcd.clear();
         lcd.setBacklight(HIGH);
         lcd.setCursor(0, 0);
@@ -42,17 +41,17 @@ void loop() {
         lcd.setCursor(0, 0);
         lcd.print("correee!!");
       }
-      if (i==25){
-        lcd.clear();
-      }
-      if (cmd == 'a'){
+      if (digitalRead(7)==HIGH){
         lcd.clear();
         lcd.setBacklight(HIGH);
         lcd.setCursor(0, 0);
         lcd.print("Vivaaaa!!");
         delay(40000);
-        i=-1;
-      }     
+        i=-1;     
+      }
+      if (i==25){
+        lcd.clear();
+      }   
     }
   }   
 }
